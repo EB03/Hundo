@@ -5,6 +5,14 @@
     --white-color: #dff3e4;
 }
 
+.odd {
+    font-weight: 100;
+}
+
+.even {
+    font-weight: bold;
+}
+
 body {
     color: var(--dark-color);
 }
@@ -16,6 +24,8 @@ nav {
 footer {
     background-color: var(--dark-color);
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
@@ -36,23 +46,31 @@ footer .social > a:hover {
 }
 
 .bsicon {
-    color: purple
+    color: #563d7c;
 }
 
 .jsicon {
-    color: rgb(226,211,4);
+    color: #F0DB4F;
 }
 
 .html5icon {
-    color: orangered;
+    color: #e34c26;
 }
 
 .cssicon {
-    color: rgb(11,82,214);
+    color: #264de4;
 }
 
 .checklist > li i {
     color: var(--secondary-color);
+}
+
+.logo-font {
+    font-family: 'Audiowide', sans-serif;
+}
+
+.regular-font {
+    font-family: 'Lato', sans-serif;
 }
 
 code[class*="language-"],
