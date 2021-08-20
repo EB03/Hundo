@@ -10,7 +10,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>    
+    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> 
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/prism.css">    
     <link rel="icon" href="/img/favicon-32x32.png" type="image/png">
@@ -21,7 +23,7 @@
     <!-- ===== Nav Section ===== -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/EB.svg" width="30" height="24" class="d-inline-block align-text-top">Hundo</a>
+            <a class="navbar-brand logo-font" href="#"><img src="/img/Eric Bruce_minilogo.svg" width="30" height="24" class="d-inline-block align-text-top">Hundo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +40,7 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/EB03/Hundo">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://ericbruce-portfolio.netlify.app">About</a>
@@ -50,22 +52,70 @@
     <!-- ===== Main Section ===== -->
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 m-5">
-            <h2 class="border-3 border-bottom border-dark">The Code for Hundo</h2>
+            <h2 class="border-3 border-bottom border-dark">The Code for <span class="logo-font">Hundo</span></h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // Call Hello World
-                            function HelloWorld() {
-                                alert("Hello World");
+                                                        
+                            //get the values from the Page
+                            //starts or control the funtion
+                            function getValues() {
+                                //get values from the page
+                                let startValue = document.getElementById("startValue").value;
+                                let endValue = document.getElementById("endValue").value;
+
+                                startValue = parseInt(startValue);
+                                endValue = parseInt(endValue);
+
+                                if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                    let numbers = generateNumbers(startValue, endValue);
+                                    displayNumbers(numbers);
+                                } else {
+                                    alert("You must enter intergers");
+                                }
+
+                            }
+
+                            //generate numbers from startvalue to the endValue
+                            // logic function(s)
+                            function generateNumbers(sValue, eValue) {
+                                let numbers = [];
+
+                                for (let i = sValue; i <= eValue; i++) {
+                                    numbers.push(i);
+                                }
+                                return numbers;
+                            }
+
+                            // display the numbers and mark even numbers bold
+                            // display or view functions
+                            function displayNumbers(numbers) {
+                                let templateRows = "";
+                                for (let i = 0; i < numbers.length; i++) {
+                                    let className = "even";
+                                    let number = numbers[i];
+                                    if (number % 2 == 0) {
+                                        className = "even";
+                                    }
+                                    
+                                    else {
+                                        className = "odd";
+                                    }
+                                    
+                                    //This does not render correctly with Prisim. See the source
+                                    templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                }
+
+                                document.getElementById("results").innerHTML = templateRows;
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
                     <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is function that displays an alert with a message of "Hello World"</p>
+                    <h5 class="logo-font">Hundo</h5>
+                    <p>Hundo is a coding project that displays numbers from 0 to 100. Even numbers are displayed in bold. You can also choose your own starting and ending numbers.</p>
                 </div>
             </div>
         </div>
@@ -80,7 +130,7 @@
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end justify-content-lg-center">
-                    <img src="/img/Copy of Copy of Copy of Eric.svg" alt="Eric Bruce Logo" height="25">
+                    <img src="/img/Eric Bruce_Logo.svg" alt="Eric Bruce Logo" height="25">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
